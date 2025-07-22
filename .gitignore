@@ -85,3 +85,4 @@ shared/pom.xml.versionsBackup
 src/main/resources/logback-locally.xml
 src/test/resources/*.json
 .run/
+/src/main/java/it/fp8/gcutil/metadata/TestMain.java
