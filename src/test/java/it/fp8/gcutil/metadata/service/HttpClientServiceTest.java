@@ -1,13 +1,13 @@
-package service;
+package it.fp8.gcutil.metadata.service;
 
-import it.fp8.gcutil.metadata.service.HttpClientService;
+import it.fp8.gcutil.metadata.http.HttpClientService;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class HttpClientServiceTest extends HttpClientService{
+class HttpClientServiceTest{
 
     private static final String BASE_URL = "https://nginx-839315814860.europe-west1.run.app/computeMetadata/v1";
     private static final String ID_TOKEN = System.getenv("ID_TOKEN");
@@ -17,9 +17,9 @@ class HttpClientServiceTest extends HttpClientService{
         // Arrange
         HttpClientService httpClientService1 = new HttpClientService();
 
-        String response1 = httpClientService1.execute(BASE_URL, "project/project-id", ID_TOKEN);
+        String response1 = httpClientService1.execute(BASE_URL, "project/project-id", null, ID_TOKEN);
 
         // Assert
-        assertEquals(response1, response2);
+        assertEquals(response1, "fp8netes-dev");
     }
 }

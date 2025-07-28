@@ -1,4 +1,4 @@
-package service;
+package it.fp8.gcutil.metadata.service;
 
 import it.fp8.gcutil.metadata.service.GcloudMetadata;
 import org.junit.jupiter.api.Test;
