@@ -23,15 +23,15 @@ public class HttpClientService {
         CLIENT = HttpClient.newHttpClient();
     }
 
-    public String execute(String baserUrl, String endpointPath) throws IOException, InterruptedException {
-        return execute(baserUrl, endpointPath, null);
+    public String execute(String baseUrl, String endpointPath) throws IOException, InterruptedException {
+        return execute(baseUrl, endpointPath, null);
     }
 
-    public String execute(String baserUrl, String endpointPath, String env) throws IOException, InterruptedException {
-        return execute(baserUrl, endpointPath, env, null);
+    public String execute(String baseUrl, String endpointPath, String env) throws IOException, InterruptedException {
+        return execute(baseUrl, endpointPath, env, null);
     }
 
-    public String execute(String baserUrl, String endpointPath, String env, String token) throws IOException, InterruptedException {
+    public String execute(String baseUrl, String endpointPath, String env, String token) throws IOException, InterruptedException {
 
         // If local development, return associated environment variable if configured
         if (Boolean.parseBoolean(METADATA_DISABLED) ||
@@ -44,7 +44,7 @@ public class HttpClientService {
             return null;
         }
 
-        var url = URI.create(baserUrl + "/" + endpointPath);
+        var url = URI.create(baseUrl + "/" + endpointPath);
         var builder = HttpRequest.newBuilder()
                 .uri(url)
                 .header("Metadata-Flavor", "Google");
