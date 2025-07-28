@@ -37,10 +37,10 @@ public class GcloudMetadata implements IMetadata {
     @Override
     public String getZone() throws IOException, InterruptedException {
         var client = new HttpClientService();
-        var fullRegionPath = client.execute(baseUrl, "instance/zone", Constants.GOOGLE_CLOUD_ZONE);
+        var fullZonePath = client.execute(baseUrl, "instance/zone", Constants.GOOGLE_CLOUD_ZONE);
         // Extract the region from the full path
         return Objects.requireNonNullElse(
-                fullRegionPath.substring(fullRegionPath.lastIndexOf("/") + 1),
+                fullZonePath.substring(fullZonePath.lastIndexOf("/") + 1),
                 "");
     }
 
