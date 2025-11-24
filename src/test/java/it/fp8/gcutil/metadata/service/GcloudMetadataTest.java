@@ -10,9 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class GcloudMetadataTest {
 
     private static final String BASE_URL = "https://nginx-839315814860.europe-west1.run.app/computeMetadata/v1";
+
     @Test
     public void testGetProjectId() throws IOException, InterruptedException {
-        var service = new GcloudMetadata("https://nginx-839315814860.europe-west1.run.app/computeMetadata/v1");
+        var service = new GcloudMetadata(BASE_URL);
         String projectId = service.getProjectId();
         assertNotNull(projectId);
         assertFalse(projectId.isEmpty());
@@ -20,7 +21,7 @@ public class GcloudMetadataTest {
 
     @Test
     public void testGetNumericProjectId() throws IOException, InterruptedException {
-        var service = new GcloudMetadata("https://nginx-839315814860.europe-west1.run.app/computeMetadata/v1");
+        var service = new GcloudMetadata(BASE_URL);
         String numericProjectId = service.getNumericProjectId();
         assertNotNull(numericProjectId);
         assertFalse(numericProjectId.isEmpty());
@@ -28,7 +29,7 @@ public class GcloudMetadataTest {
 
     @Test
     public void testGetRegion() throws IOException, InterruptedException {
-        var service = new GcloudMetadata("https://nginx-839315814860.europe-west1.run.app/computeMetadata/v1");
+        var service = new GcloudMetadata(BASE_URL);
         String region = service.getRegion();
         assertNotNull(region);
         assertFalse(region.isEmpty());
@@ -36,7 +37,7 @@ public class GcloudMetadataTest {
 
     @Test
     public void testGetZone() throws IOException, InterruptedException {
-        var service = new GcloudMetadata("https://nginx-839315814860.europe-west1.run.app/computeMetadata/v1");
+        var service = new GcloudMetadata(BASE_URL);
         String zone = service.getZone();
         assertNotNull(zone);
         assertFalse(zone.isEmpty());
@@ -44,7 +45,7 @@ public class GcloudMetadataTest {
 
     @Test
     public void testGetEmailServiceAccount() throws IOException, InterruptedException {
-        var service = new GcloudMetadata("https://nginx-839315814860.europe-west1.run.app/computeMetadata/v1");
+        var service = new GcloudMetadata(BASE_URL);
         String emailServiceAccount = service.getServiceAccountEmail();
         assertNotNull(emailServiceAccount);
         assertFalse(emailServiceAccount.isEmpty());
